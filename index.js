@@ -5,11 +5,7 @@ const app = Express();
 
 app.use(Express.json());
 
-const usuarios = [
-    { id: 1, nombre: "Joao" },
-    { id: 2, nombre: "Maria" },
-    { id: 3, nombre: "José" },
-]
+const PORT = 9000
 
 app.get("/", (req, res) => {
     // enviar index.html
@@ -33,7 +29,11 @@ app.get("/:enlace", (req, res) => {
     })
 })
 
-
+const usuarios = [
+    { id: 1, nombre: "Joao" },
+    { id: 2, nombre: "Maria" },
+    { id: 3, nombre: "José" },
+]
 
 app.get('/api/usuarios', (req, res) => {
     res.send(usuarios);
@@ -54,6 +54,6 @@ app.post('/api/usuarios', (req, res) => {
     res.send(usuario);
 })
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
